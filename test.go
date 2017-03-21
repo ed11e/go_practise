@@ -3,11 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var x = 20.0
-
-	y := 42
-	fmt.Println(x)
-	fmt.Println(y)
-	fmt.Printf("x is of type %T\n", x)
-	fmt.Printf("y is of type %T\n", y)
+	var i, j, k int
+	i = 10
+	j = i + 10
+	k = i + j
+	fmt.Println(k)
 }
