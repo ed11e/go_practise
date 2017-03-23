@@ -1,36 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type Human struct {
-	name  string
-	age   int
-	phone int
+type User struct {
+	FirstName, LastName string
+	Age                 int
 }
 
-type Student struct {
-	Human
-	university string
-	course     string
+func (u *User) GetFirstName() string {
+	return u.FirstName
 }
 
-type Grad struct {
-	Human
-	job string
+func (u *User) GetLastName() string {
+	return u.LastName
 }
 
-func (h *Human) SayHi() {
-	fmt.Println("Hi! My name is %s\n", h.name)
+func (u *User) GetAge() int {
+	return u.Age
 }
 
-func (h *Human) GiveAge() {
-	fmt.Println("I am %s\n", h.age)
-}
-
-func (h *Human) GiveNumber() {
-	fmt.Println("My phone number is %s\n", h.phone)
-}
-
-func (g *Grad) SayHi() {
-	fmt.Println("Hi! My name is %s\n", g.name, "I am a grad")
+func main() {
+	u := &User{"John", "Smith", 30}
+	fmt.Println(u.GetFirstName())
+	fmt.Println(u.GetLastName())
+	fmt.Println(u.GetAge())
 }
