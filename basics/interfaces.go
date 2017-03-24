@@ -8,6 +8,7 @@ type User struct {
 	FirstName, LastName string
 	Age                 int
 	Employed            bool
+	BankBalance         float64
 }
 
 func (u *User) GetFirstName() string {
@@ -41,8 +42,22 @@ func (u *User) NewJob() bool {
 	return u.Employed
 }
 
+func (u *User) GetPaid(i float64) float64 {
+	u.BankBalance += i
+	return u.BankBalance
+}
+
+func (u *User) SpendMoney(i float64) float64 {
+	u.BankBalance -= i
+	return u.BankBalance
+}
+
+func (u *User) GetBankBalance() float64 {
+	return u.BankBalance
+}
+
 func main() {
-	u := &User{"John", "Smith", 30, false}
+	u := &User{"John", "Smith", 30, false, 10}
 	fmt.Println(u.GetFirstName())
 	fmt.Println(u.GetLastName())
 	fmt.Println(u.GetAge())
@@ -56,4 +71,7 @@ func main() {
 	fmt.Println("Time to Retire!!!")
 	u.Retire()
 	fmt.Println(u.GetEmployed())
+	u.GetPaid(20.50)
+	fmt.Println(u.GetBankBalance())
+
 }
