@@ -26,10 +26,34 @@ func (u *User) GetEmployed() bool {
 	return u.Employed
 }
 
+func (u *User) Birthday() int {
+	u.Age++
+	return u.Age
+}
+
+func (u *User) Retire() bool {
+	u.Employed = false
+	return u.Employed
+}
+
+func (u *User) NewJob() bool {
+	u.Employed = true
+	return u.Employed
+}
+
 func main() {
-	u := &User{"John", "Smith", 30, true}
+	u := &User{"John", "Smith", 30, false}
 	fmt.Println(u.GetFirstName())
 	fmt.Println(u.GetLastName())
 	fmt.Println(u.GetAge())
+	fmt.Println(u.GetEmployed())
+	fmt.Println("User getting older")
+	u.Birthday()
+	fmt.Println(u.GetAge())
+	fmt.Println("Got a Job!!!")
+	u.NewJob()
+	fmt.Println(u.GetEmployed())
+	fmt.Println("Time to Retire!!!")
+	u.Retire()
 	fmt.Println(u.GetEmployed())
 }
