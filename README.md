@@ -1,5 +1,5 @@
 # go_practise
-Practising and learning golang
-Following the exercism go exercises
+Practising and learning golang.
 
+Resources used:
 http://exercism.io/languages/go/about
