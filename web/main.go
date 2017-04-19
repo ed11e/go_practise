@@ -23,6 +23,10 @@ func main() {
 		}
 	}
 
+	type Person struct {
+		UserName string
+	}
+
 	templates, err = template.ParseFiles(allFiles...)
 
 	s1 := templates.Lookup("header.tmpl")
