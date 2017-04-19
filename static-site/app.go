@@ -14,6 +14,7 @@ func main() {
 	http.HandleFunc("/", serveTemplate)
 
 	log.Println("Listening...")
+	log.Println("Running on http://localhost:3000")
 	http.ListenAndServe(":3000", nil)
 }
 
