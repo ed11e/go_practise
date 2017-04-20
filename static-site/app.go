@@ -21,15 +21,13 @@ func main() {
 
 }
 
-var total = "<p>DevOps Is Cool</p>"
-
-func fileReader() {
+func fileReader() string {
 	b, err := ioutil.ReadFile("stuff.txt")
 	if err != nil {
 		fmt.Println(err)
 	}
 	str := string(b)
-	fmt.Println(str)
+	return str
 }
 
 func serveTemplate(w http.ResponseWriter, r *http.Request) {
@@ -60,7 +58,7 @@ func serveTemplate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := tmpl.ExecuteTemplate(w, "layout", template.HTML(total)); err != nil {
+	if err := tmpl.ExecuteTemplate(w, "layout", fileReader()); err != nil {
 		log.Println(err.Error())
 		http.Error(w, http.StatusText(500), 500)
 	}
