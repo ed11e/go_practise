@@ -14,9 +14,11 @@ func main() {
 	http.HandleFunc("/", serveTemplate)
 
 	log.Println("Listening...")
-	log.Println("Running on http://localhost:3000")
+	log.Println("Running on http://localhost:3000/example.html")
 	http.ListenAndServe(":3000", nil)
 }
+
+var total = "<p>DevOps Is Cool</p>"
 
 func serveTemplate(w http.ResponseWriter, r *http.Request) {
 	lp := filepath.Join("templates", "layout.html")
@@ -46,7 +48,7 @@ func serveTemplate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := tmpl.ExecuteTemplate(w, "layout", "Hello"); err != nil {
+	if err := tmpl.ExecuteTemplate(w, "layout", template.HTML(total)); err != nil {
 		log.Println(err.Error())
 		http.Error(w, http.StatusText(500), 500)
 	}
