@@ -28,7 +28,8 @@ func fileReader() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(b)
+	str := string(b)
+	fmt.Println(str)
 }
 
 func serveTemplate(w http.ResponseWriter, r *http.Request) {
