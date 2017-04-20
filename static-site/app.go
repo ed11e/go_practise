@@ -18,7 +18,7 @@ func main() {
 	http.ListenAndServe(":3000", nil)
 }
 
-var total int = 1
+var total = 1
 
 func serveTemplate(w http.ResponseWriter, r *http.Request) {
 	lp := filepath.Join("templates", "layout.html")
