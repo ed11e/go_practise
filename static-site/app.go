@@ -18,6 +18,8 @@ func main() {
 	http.ListenAndServe(":3000", nil)
 }
 
+var total int = 1
+
 func serveTemplate(w http.ResponseWriter, r *http.Request) {
 	lp := filepath.Join("templates", "layout.html")
 	fp := filepath.Join("templates", filepath.Clean(r.URL.Path))
@@ -46,7 +48,7 @@ func serveTemplate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := tmpl.ExecuteTemplate(w, "layout", "Hello"); err != nil {
+	if err := tmpl.ExecuteTemplate(w, "layout", total); err != nil {
 		log.Println(err.Error())
 		http.Error(w, http.StatusText(500), 500)
 	}
