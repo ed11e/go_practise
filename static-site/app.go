@@ -22,7 +22,7 @@ func main() {
 }
 
 func fileReader() string {
-	b, err := ioutil.ReadFile("templates/stuff.txt")
+	b, err := ioutil.ReadFile("templates/test.html")
 	if err != nil {
 		fmt.Println(err)
 	}
