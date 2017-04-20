@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -12,13 +14,22 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/", serveTemplate)
-
+	fileReader()
 	log.Println("Listening...")
 	log.Println("Running on http://localhost:3000/example.html")
 	http.ListenAndServe(":3000", nil)
+
 }
 
 var total = "<p>DevOps Is Cool</p>"
+
+func fileReader() {
+	b, err := ioutil.ReadFile("stuff.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(b)
+}
 
 func serveTemplate(w http.ResponseWriter, r *http.Request) {
 	lp := filepath.Join("templates", "layout.html")
