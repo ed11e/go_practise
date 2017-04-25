@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"log"
 	"net/http"
-	"reflect"
+	"os"
+	"strings"
 )
 
 func main() {
@@ -17,7 +20,10 @@ func main() {
 		if err != nil {
 			fmt.Println(err.Error())
 		} else {
-			fmt.Println(reflect.TypeOf(resp.Body))
+			r := strings.NewReader(resp.Body)
+			if _, err := io.Copy(os.Stdout, r); err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 }
