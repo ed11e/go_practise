@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"reflect"
 )
 
 func main() {
@@ -16,7 +17,7 @@ func main() {
 		if err != nil {
 			fmt.Println(err.Error())
 		} else {
-			fmt.Println(resp.Body)
+			fmt.Println(reflect.TypeOf(resp.Body))
 		}
 	}
 }
