@@ -2,11 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io"
-	"log"
 	"net/http"
-	"os"
-	"strings"
 )
 
 func main() {
@@ -20,10 +16,7 @@ func main() {
 		if err != nil {
 			fmt.Println(err.Error())
 		} else {
-			r := strings.NewReader(resp.Body)
-			if _, err := io.Copy(os.Stdout, r); err != nil {
-				log.Fatal(err)
-			}
+			//Do something
 		}
 	}
 }
