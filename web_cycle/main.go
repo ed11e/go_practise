@@ -17,9 +17,11 @@ func main() {
 		if err != nil {
 			fmt.Println(err.Error())
 		} else {
-			bodyBytes, err2 := ioutil.ReadAll(resp.Body)
-			bodyString, _ := string(bodyBytes)
-			fmt.Println(bodyString)
+			body, err := ioutil.ReadAll(resp.Body)
+			fmt.Println(string(body))
+			if err != nil {
+				fmt.Println(err)
+			}
 		}
 	}
 }
