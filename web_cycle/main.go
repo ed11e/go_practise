@@ -16,7 +16,7 @@ func main() {
 		if err != nil {
 			fmt.Println(err.Error())
 		} else {
-			fmt.Println(resp.StatusCode)
+			fmt.Println(resp.Body)
 		}
 	}
 }
