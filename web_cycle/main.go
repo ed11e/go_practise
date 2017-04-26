@@ -24,7 +24,11 @@ func main() {
 			}
 		}()
 	}
-	fmt.Println(resultsChan)
+	close(resultsChan)
+
+	for item := range resultsChan {
+		fmt.Println(item)
+	}
 
 	var input string
 	fmt.Scanln(&input)
