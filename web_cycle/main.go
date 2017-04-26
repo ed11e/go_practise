@@ -17,7 +17,6 @@ func main() {
 			} else {
 				body, err := ioutil.ReadAll(resp.Body)
 				resultsChan <- string(body)
-				// fmt.Println(string(body))
 				if err != nil {
 					fmt.Println(err)
 				}
@@ -29,5 +28,4 @@ func main() {
 		fmt.Println(<-resultsChan)
 		fmt.Println(item)
 	}
-
 }
