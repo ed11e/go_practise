@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func toRun() {
+func getUrls() {
 	var urls = []string{"https://www.google.com", "https://www.yahoo.com", "https://www.sky.com", "https://www.bbc.co.uk"}
 	for _, url := range urls {
 		fmt.Println("Fetching: " + url)
@@ -25,8 +25,7 @@ func toRun() {
 }
 
 func main() {
-	go toRun()
-
+	go getUrls()
 	var input string
 	fmt.Scanln(&input)
 
