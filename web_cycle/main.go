@@ -24,6 +24,10 @@ func getUrls() {
 	}
 }
 
+func checkDone() {
+	fmt.Println("Press Enter to terminate the program")
+}
+
 func main() {
 	go getUrls()
 	var input string
