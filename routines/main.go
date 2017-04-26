@@ -1,3 +1,5 @@
+// source https://gobyexample.com/goroutines
+
 package main
 
 import "fmt"
