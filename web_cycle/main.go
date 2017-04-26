@@ -11,7 +11,6 @@ func main() {
 	resultsChan := make(chan string)
 	for _, url := range urls {
 		go func() {
-			fmt.Println("Fetching: " + url)
 			resp, err := http.Get(url)
 			if err != nil {
 				fmt.Println(err)
@@ -25,6 +24,7 @@ func main() {
 			}
 		}()
 	}
+	fmt.Println(resultsChan)
 
 	var input string
 	fmt.Scanln(&input)
