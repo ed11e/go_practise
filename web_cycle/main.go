@@ -23,6 +23,7 @@ import (
 
 func main() {
 	var urls = []string{"https://www.google.com", "https://www.yahoo.com", "https://www.sky.com", "https://www.bbc.co.uk"}
+	resultsChan := make(chan string)
 	for _, url := range urls {
 		go func() {
 			fmt.Println("Fetching: " + url)
