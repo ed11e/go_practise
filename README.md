@@ -7,3 +7,5 @@ Resources used:
 - http://www.alexedwards.net/blog/serving-static-sites-with-go
 - https://abronan.com/introduction-to-goroutines-and-go-channels/
 - https://gobyexample.com/goroutines
+- https://tour.golang.org/concurrency/2
+- https://gobyexample.com/channels
