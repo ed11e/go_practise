@@ -24,13 +24,10 @@ func main() {
 			}
 		}()
 	}
-	close(resultsChan)
 
-	for item := range resultsChan {
+	for item := range urls {
+		fmt.Println(<-resultsChan)
 		fmt.Println(item)
 	}
-
-	var input string
-	fmt.Scanln(&input)
 
 }
