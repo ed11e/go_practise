@@ -14,9 +14,12 @@ func toRun() {
 
 func main() {
 
-	var urls = []string{"https://www.google.com", "https://www.yahoo.com", "https://www.sky.com", "https://www.bbc.co.uk"}
+	// var urls = []string{"https://www.google.com", "https://www.yahoo.com", "https://www.sky.com", "https://www.bbc.co.uk"}
 
 	go toRun()
+
+	var input string
+	fmt.Scanln(&input)
 
 	// for _, url := range urls {
 	// 	fmt.Println("Fetching: " + url)
