@@ -1,3 +1,4 @@
+// Source https://gobyexample.com/range-over-channels
 package main
 
 import "fmt"
