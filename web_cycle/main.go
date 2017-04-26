@@ -30,6 +30,7 @@ func checkDone() {
 
 func main() {
 	go getUrls()
+	go checkDone()
 	var input string
 	fmt.Scanln(&input)
 
